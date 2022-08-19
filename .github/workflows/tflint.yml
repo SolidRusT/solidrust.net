@@ -1,0 +1,28 @@
+name: tflint
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  tflint:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        directory: ["terraform"]
+    steps:
+      - uses: actions/checkout@master
+      - uses: actions/cache@master
+        with:
+          path: ~/.tflint.d/plugins
+          key: tflint-${{ hashFiles('.tflint.hcl') }}
+      - uses: terraform-linters/setup-tflint@master
+        with:
+          tflint_version: v0.39.2
+      - run: tflint --version
+      - run: tflint --init terraform
+      - run: tflint -f compact terraform
