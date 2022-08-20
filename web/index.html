@@ -1,9 +1,5 @@
 <html>
 <head>
-  <!-- You MUST include jQuery before Fomantic -->
-  <script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/fomantic-ui@latest/dist/semantic.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/fomantic-ui@latest/dist/semantic.min.js"></script>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-FPL6JPJKV1"></script>
   <script>
@@ -13,9 +9,22 @@
     gtag('config', 'G-FPL6JPJKV1');
   </script>
 </head>
+
 <body>
-  solidrust.net says: nothing to see here... move along now.
+  <!-- ... other HTML ... -->
+  <!-- ... Load React ... -->
+
+  <link
+    async
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/semantic-ui@2/dist/semantic.min.css"
+  />
+  <script src="https://cdn.jsdelivr.net/npm/semantic-ui-react/dist/umd/semantic-ui-react.min.js"></script>
+
+  <p>solidrust.net says: nothing to see here... move along now.
+  <!-- Load our React component. -->
+  <script src="like_button.js"></script>
+  </p>
+
 </body>
 </html>
-
-
