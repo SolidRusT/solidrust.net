@@ -83,3 +83,5 @@ defaults/oxide/data/ZoneManager/*
 
 # node files
 **/node_modules
+
+*.min.js
