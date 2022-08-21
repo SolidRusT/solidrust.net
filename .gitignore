@@ -85,3 +85,5 @@ defaults/oxide/data/ZoneManager/*
 **/node_modules
 
 *.min.js
+package-lock.json
+package.json
