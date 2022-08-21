@@ -8,7 +8,7 @@ import reportWebVitals from './reportWebVitals';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    e(LikeButton)
+    like(LikeButton)
     <App />
   </React.StrictMode>
 );
@@ -21,7 +21,7 @@ reportWebVitals();
 
 'use strict';
 
-const e = React.createElement;
+const like = React.createElement;
 
 class LikeButton extends React.Component {
   constructor(props) {
@@ -34,7 +34,7 @@ class LikeButton extends React.Component {
       return 'You liked this.';
     }
 
-    return e(
+    return like(
       'button',
       { onClick: () => this.setState({ liked: true }) },
       'Like'
