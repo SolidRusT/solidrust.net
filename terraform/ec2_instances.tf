@@ -8,7 +8,6 @@ resource "aws_instance" "nginx_us_west_2_instance_1" {
   network_interface {
     network_interface_id = aws_network_interface.nginx_1_us_west_2_public.id
     device_index         = 0
-    associate_public_ip_address = true
   }
   network_interface {
     network_interface_id = aws_network_interface.nginx_1_us_west_2_private.id
@@ -37,7 +36,6 @@ resource "aws_instance" "nginx_us_west_2_instance_2" {
   network_interface {
     network_interface_id = aws_network_interface.nginx_2_us_west_2_public.id
     device_index         = 0
-    associate_public_ip_address = true
   }
   network_interface {
     network_interface_id = aws_network_interface.nginx_2_us_west_2_private.id
@@ -67,7 +65,6 @@ resource "aws_instance" "app_1_us_west_2_private_1" {
   network_interface {
     network_interface_id = aws_network_interface.app_1_us_west_2_public.id
     device_index         = 0
-    associate_public_ip_address = true
   }
   network_interface {
     network_interface_id = aws_network_interface.app_1_us_west_2_private.id
@@ -97,7 +94,6 @@ resource "aws_instance" "app_1_us_east_1_private_1" {
   network_interface {
     network_interface_id = aws_network_interface.app_1_us_east_1_public.id
     device_index         = 0
-    associate_public_ip_address = true
   }
   network_interface {
     network_interface_id = aws_network_interface.app_1_us_east_1_private.id
