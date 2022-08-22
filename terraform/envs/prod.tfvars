@@ -1,0 +1,12 @@
+env = "prod"
+region = "us-west-2"
+vpc_cidr_us_east_1 = "10.100.0.0/16"
+vpc_cidr_us_east_2 = "10.101.0.0/16"
+vpc_cidr_us_west_2 = "10.102.0.0/16"
+private_subnets_us_east_1 = ["10.100.1.0/24","10.100.2.0/24"]
+private_subnets_us_east_2 = ["10.101.1.0/24","10.101.2.0/24"]
+private_subnets_us_west_2 = ["10.102.1.0/24","10.102.2.0/24"]
+public_subnets_us_east_1 = ["10.100.3.0/24","10.100.4.0/24"]
+public_subnets_us_east_2 = ["10.101.3.0/24","10.101.4.0/24"]
+public_subnets_us_west_2 = ["10.102.3.0/24","10.102.4.0/24"]
+owner_tag = "SRT DevOps Team"
