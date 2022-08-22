@@ -106,13 +106,13 @@ resource "aws_network_interface" "nginx_1_us_west_2_public" {
 }
 
 resource "aws_network_interface" "nginx_2_us_west_2_public" {
-  subnet_id   = module.vpc_us_west_2.public_subnets[0]
+  subnet_id   = module.vpc_us_west_2.public_subnets[1]
   security_groups = [aws_security_group.ssh.id]
   provider = aws.us-west-2
 }
 
 resource "aws_network_interface" "app_1_us_west_2_public" {
-  subnet_id   = module.vpc_us_west_2.public_subnets[1]
+  subnet_id   = module.vpc_us_west_2.public_subnets[0]
   security_groups = [aws_security_group.ssh.id]
   provider = aws.us-west-2
 }
@@ -131,13 +131,13 @@ resource "aws_network_interface" "nginx_1_us_west_2_private" {
 }
 
 resource "aws_network_interface" "nginx_2_us_west_2_private" {
-  subnet_id   = module.vpc_us_west_2.private_subnets[0]
+  subnet_id   = module.vpc_us_west_2.private_subnets[1]
   security_groups = [aws_security_group.ssh.id]
   provider = aws.us-west-2
 }
 
 resource "aws_network_interface" "app_1_us_west_2_private" {
-  subnet_id   = module.vpc_us_west_2.private_subnets[1]
+  subnet_id   = module.vpc_us_west_2.private_subnets[0]
   security_groups = [aws_security_group.ssh.id]
   provider = aws.us-west-2
 }
