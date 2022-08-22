@@ -1,6 +1,8 @@
 env = "prod"
 owner_tag = "SRT DevOps Team"
 region = "us-west-2"
+#web_instance_type = "t4g.micro"
+#app_instance_type = "c5d.large"
 vpc_cidr_us_east_1 = "10.100.0.0/16"
 vpc_cidr_us_east_2 = "10.101.0.0/16"
 vpc_cidr_us_west_2 = "10.102.0.0/16"

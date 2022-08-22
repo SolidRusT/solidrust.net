@@ -3,6 +3,11 @@ locals{
   prefix  = "${local.project}-access"
   aws_account = data.aws_caller_identity.current.account_id
   depends_on = [module.vpc_us_east_1, module.vpc_us_east_2, module.vpc_us_west_2]
+  nginx_instance_type = "t4g.micro"
+  app_instance_type = "c5d.large"
+  ssh_key_name_us_east_1 = "${local.project}-us-east-1"
+  ssh_key_name_us_east_2 = "${local.project}-us-east-1"
+  ssh_key_name_us_west_2 = "${local.project}-us-west-2"
   
   vpcs = {
     us-east-1 = {
