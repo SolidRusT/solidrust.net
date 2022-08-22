@@ -3,7 +3,7 @@ name: "Plan & Apply"
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   terraform:
@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@master
+        uses: actions/checkout@main
 
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
