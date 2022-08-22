@@ -3,7 +3,7 @@ resource "aws_instance" "nginx_us_west_2_instance_1" {
   ami                  = data.aws_ami.ubuntu-22-04-arm64-us-west-2.id
   instance_type        = local.nginx_instance_type
   availability_zone    = "us-west-2a"
-  iam_instance_profile = aws_iam_instance_profile.srt_cloud.name
+  iam_instance_profile = aws_iam_instance_profile.srt_cloud_nginx.name
 
   network_interface {
     network_interface_id = aws_network_interface.nginx_1_us_west_2_public.id
@@ -31,7 +31,7 @@ resource "aws_instance" "nginx_us_west_2_instance_2" {
   ami                  = data.aws_ami.ubuntu-22-04-arm64-us-west-2.id
   instance_type        = local.nginx_instance_type
   availability_zone    = "us-west-2b"
-  iam_instance_profile = aws_iam_instance_profile.srt_cloud.name
+  iam_instance_profile = aws_iam_instance_profile.srt_cloud_nginx.name
 
   network_interface {
     network_interface_id = aws_network_interface.nginx_2_us_west_2_public.id
@@ -60,7 +60,7 @@ resource "aws_instance" "app_1_us_west_2_private_1" {
   ami                  = data.aws_ami.ubuntu-22-04-x86_64-us-west-2.id
   instance_type        = local.app_instance_type
   availability_zone    = "us-west-2a"
-  iam_instance_profile = aws_iam_instance_profile.srt_cloud.name
+  iam_instance_profile = aws_iam_instance_profile.srt_cloud_app.name
 
   network_interface {
     network_interface_id = aws_network_interface.app_1_us_west_2_public.id
@@ -89,7 +89,7 @@ resource "aws_instance" "app_1_us_east_1_private_1" {
   ami                  = data.aws_ami.ubuntu-22-04-x86_64-us-east-1.id
   instance_type        = local.app_instance_type
   availability_zone    = "us-east-1a"
-  iam_instance_profile = aws_iam_instance_profile.srt_cloud.name
+  iam_instance_profile = aws_iam_instance_profile.srt_cloud_app.name
 
   network_interface {
     network_interface_id = aws_network_interface.app_1_us_east_1_public.id

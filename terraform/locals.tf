@@ -6,7 +6,7 @@ locals{
   nginx_instance_type = "t4g.micro"
   app_instance_type = "c5d.large"
   ssh_key_name_us_east_1 = "${local.project}-us-east-1"
-  ssh_key_name_us_east_2 = "${local.project}-us-east-1"
+  ssh_key_name_us_east_2 = "${local.project}-us-east-2"
   ssh_key_name_us_west_2 = "${local.project}-us-west-2"
   
   vpcs = {
