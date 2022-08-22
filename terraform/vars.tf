@@ -1,13 +1,17 @@
 variable "env" {
-    default =  "prod"
+  default =  "prod"
 }
 
 variable "region" {
-    default = "us-east-1"
+  default = "us-east-1"
 }
 
 variable "owner_tag" {
-    default = "Unknown / Default"
+  default = "Unknown / Default"
+}
+
+variable "project" {
+  default = "srt-cloud"  
 }
 
 variable "vpc_cidr_us_east_1" {

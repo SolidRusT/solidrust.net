@@ -1,14 +1,8 @@
-terraform {
-  backend "s3" {}
-}
-
-data "aws_caller_identity" "current" {}
-
 locals{
-  project = "srt-cloud"
+  project = var.project
   prefix  = "${local.project}-access"
   aws_account = data.aws_caller_identity.current.account_id
-  depends_on = [module.vpc_us_east_1]
+  depends_on = [module.vpc_us_east_1, module.vpc_us_east_2, module.vpc_us_west_2]
   
   vpcs = {
     us-east-1 = {
