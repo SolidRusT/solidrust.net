@@ -1,5 +1,4 @@
 # us-east-1
-
 resource "aws_security_group" "endpoints_us_east_1" {
   name        = "${local.prefix}-endpoints"
   description = "Allow all HTTPS traffic"
