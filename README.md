@@ -68,3 +68,31 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+```bash
+uname -srm
+sudo apt update && sudo apt dist-upgrade
+uname -srm
+# reeboot if kernel version changed, or if initrd was rebuilt
+sudo apt install sysbench
+```
+
+```bash
+# test compute ability
+sysbench --test=cpu run
+sysbench --test=cpu --cpu-max-prime=20000 run
+# test memory bandwidth
+sysbench --test=memory run
+# test filesystem performance
+sysbench --test=fileio --file-test-mode=seqwr run
+# clean ephemeral benchmark data
+sysbench --test=fileio --file-total-size=100G cleanup
+```
+
+### References
+- https://github.com/Semantic-Org/Semantic-UI-React
+- https://react.semantic-ui.com/usage/
+- https://reactjs.org/docs/add-react-to-a-website.html#add-react-in-one-minute
+- https://github.com/facebook/react/
+- https://github.com/facebook/create-react-app
