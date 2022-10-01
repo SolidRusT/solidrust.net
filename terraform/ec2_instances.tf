@@ -1,7 +1,7 @@
 # NGINX public web us-west-2
 resource "aws_instance" "nginx_us_west_2_instance_1" {
   ami                  = data.aws_ami.ubuntu-22-04-arm64-us-west-2.id
-  instance_type        = local.nginx_instance_type
+  instance_type        = var.nginx_instance_type
   availability_zone    = "us-west-2a"
   iam_instance_profile = aws_iam_instance_profile.srt_cloud_nginx.name
 
@@ -29,7 +29,7 @@ resource "aws_instance" "nginx_us_west_2_instance_1" {
 
 resource "aws_instance" "nginx_us_west_2_instance_2" {
   ami                  = data.aws_ami.ubuntu-22-04-arm64-us-west-2.id
-  instance_type        = local.nginx_instance_type
+  instance_type        = var.nginx_instance_type
   availability_zone    = "us-west-2b"
   iam_instance_profile = aws_iam_instance_profile.srt_cloud_nginx.name
 
@@ -58,7 +58,7 @@ resource "aws_instance" "nginx_us_west_2_instance_2" {
 # APP instance us-west-2
 resource "aws_instance" "app_1_us_west_2_private_1" {
   ami                  = data.aws_ami.ubuntu-22-04-x86_64-us-west-2.id
-  instance_type        = local.app_instance_type
+  instance_type        = var.app_instance_type
   availability_zone    = "us-west-2a"
   iam_instance_profile = aws_iam_instance_profile.srt_cloud_app.name
 
@@ -87,7 +87,7 @@ resource "aws_instance" "app_1_us_west_2_private_1" {
 # APP instance us-east-1
 resource "aws_instance" "app_1_us_east_1_private_1" {
   ami                  = data.aws_ami.ubuntu-22-04-x86_64-us-east-1.id
-  instance_type        = local.app_instance_type
+  instance_type        = var.app_instance_type
   availability_zone    = "us-east-1a"
   iam_instance_profile = aws_iam_instance_profile.srt_cloud_app.name
 
@@ -116,7 +116,7 @@ resource "aws_instance" "app_1_us_east_1_private_1" {
 # Proxy public web us-west-2
 resource "aws_instance" "proxy_us_west_2_instance_1" {
   ami                  = data.aws_ami.ubuntu-22-04-arm64-us-west-2.id
-  instance_type        = local.proxy_instance_type
+  instance_type        = var.proxy_instance_type
   availability_zone    = "us-west-2a"
   iam_instance_profile = aws_iam_instance_profile.srt_cloud_proxy.name
 
