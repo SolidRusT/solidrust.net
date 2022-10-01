@@ -1,7 +1,7 @@
-# EC2 NGINX Instance Profile
+# EC2 web Instance Profile
 
-resource "aws_iam_instance_profile" "srt_cloud_nginx" {
-  name = "${local.prefix}-ec2-nginx-profile"
+resource "aws_iam_instance_profile" "srt_cloud_web" {
+  name = "${local.prefix}-ec2-web-profile"
   role = aws_iam_role.srt_cloud.name
 }
 
