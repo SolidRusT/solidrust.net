@@ -46,3 +46,15 @@ variable "public_subnets_us_east_2" {
 variable "public_subnets_us_west_2" {
   type = list
 }
+
+variable "web_instance_type" {
+  description = "Instance Type"
+}
+
+variable "app_instance_type" {
+  description = "Instance Type"
+}
+
+variable "proxy_instance_type" {
+  description = "Instance Type"
+}
