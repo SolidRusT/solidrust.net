@@ -123,6 +123,12 @@ resource "aws_network_interface" "app_2_us_west_2_public" {
   provider = aws.us-west-2
 }
 
+resource "aws_network_interface" "proxy_1_us_west_2_public" {
+  subnet_id   = module.vpc_us_west_2.public_subnets[0]
+  security_groups = [aws_security_group.ssh.id]
+  provider = aws.us-west-2
+}
+
 # us-west-2 - private
 resource "aws_network_interface" "nginx_1_us_west_2_private" {
   subnet_id   = module.vpc_us_west_2.private_subnets[0]
@@ -148,3 +154,8 @@ resource "aws_network_interface" "app_2_us_west_2_private" {
   provider = aws.us-west-2
 }
 
+resource "aws_network_interface" "proxy_1_us_west_2_private" {
+  subnet_id   = module.vpc_us_west_2.private_subnets[0]
+  security_groups = [aws_security_group.ssh.id]
+  provider = aws.us-west-2
+}
