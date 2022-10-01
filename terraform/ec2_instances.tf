@@ -115,7 +115,7 @@ resource "aws_instance" "app_1_us_east_1_private_1" {
 
 # Proxy public web us-west-2
 resource "aws_instance" "proxy_us_west_2_instance_1" {
-  ami                  = data.aws_ami.ubuntu-22-04-arm64-us-west-2.id
+  ami                  = data.aws_ami.ubuntu-22-04-x86_64-us-west-2.id
   instance_type        = var.proxy_instance_type
   availability_zone    = "us-west-2a"
   iam_instance_profile = aws_iam_instance_profile.srt_cloud_proxy.name
