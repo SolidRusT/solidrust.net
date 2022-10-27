@@ -22,9 +22,9 @@ resource "aws_instance" "web_us_west_2_instance_1" {
 
   provider = aws.us-west-2
 
-  depends_on = [
-    module.endpoints_us_west_2
-  ]
+  #depends_on = [
+  #  module.endpoints_us_west_2
+  #]
 }
 
 resource "aws_instance" "web_us_west_2_instance_2" {
@@ -50,9 +50,9 @@ resource "aws_instance" "web_us_west_2_instance_2" {
 
   provider = aws.us-west-2
 
-  depends_on = [
-    module.endpoints_us_west_2
-  ]
+  #depends_on = [
+  #  module.endpoints_us_west_2
+  #]
 }
 
 # APP instance us-west-2
@@ -79,9 +79,9 @@ resource "aws_instance" "app_1_us_west_2_private_1" {
 
   provider = aws.us-west-2
 
-  depends_on = [
-    module.endpoints_us_west_2
-  ]
+  #depends_on = [
+  #  module.endpoints_us_west_2
+  #]
 }
 
 # APP instance us-east-1
@@ -108,9 +108,9 @@ resource "aws_instance" "app_1_us_east_1_private_1" {
 
   provider = aws.us-east-1
 
-  depends_on = [
-    module.endpoints_us_east_1
-  ]
+  #depends_on = [
+  #  module.endpoints_us_east_1
+  #]
 }
 
 # Proxy public web us-west-2
@@ -137,7 +137,7 @@ resource "aws_instance" "proxy_us_west_2_instance_1" {
 
   provider = aws.us-west-2
 
-  depends_on = [
-    module.endpoints_us_west_2
-  ]
+  #depends_on = [
+  #  module.endpoints_us_west_2
+  #]
 }
