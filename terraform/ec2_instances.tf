@@ -15,9 +15,9 @@ resource "aws_instance" "web_us_west_2_instance_1" {
     device_index         = 1
   }
   key_name = local.ssh_key_name_us_west_2
-  tags = merge(local.common_tags, map(
-    "Name", "${local.prefix}-web-public"
-  ))
+  tags = merge(local.common_tags, tomap({
+    "Name" = "${local.prefix}-web-public"
+  }))
   depends_on = [
   #  module.endpoints_us_west_2
     aws_security_group.ssh
@@ -39,9 +39,9 @@ resource "aws_instance" "web_us_west_2_instance_2" {
     device_index         = 1
   }
   key_name = local.ssh_key_name_us_west_2
-  tags = merge(local.common_tags, map(
-    "Name", "${local.prefix}-web-public"
-  ))
+  tags = merge(local.common_tags, tomap({
+    "Name" = "${local.prefix}-web-public"
+  }))
   depends_on = [
   #  module.endpoints_us_west_2
     aws_security_group.ssh
@@ -64,9 +64,9 @@ resource "aws_instance" "app_1_us_west_2_private_1" {
     device_index         = 1
   }
   key_name = local.ssh_key_name_us_west_2
-  tags = merge(local.common_tags, map(
-    "Name", "${local.prefix}-app-private"
-  ))
+  tags = merge(local.common_tags, tomap({
+    "Name" = "${local.prefix}-app-private"
+  }))
   depends_on = [
   #  module.endpoints_us_west_2
     aws_security_group.ssh
@@ -89,9 +89,9 @@ resource "aws_instance" "proxy_us_west_2_instance_1" {
     device_index         = 1
   }
   key_name = local.ssh_key_name_us_west_2
-  tags = merge(local.common_tags, map(
-    "Name", "${local.prefix}-proxy-public"
-  ))
+  tags = merge(local.common_tags, tomap({
+    "Name" = "${local.prefix}-proxy-public"
+  }))
   depends_on = [
   #  module.endpoints_us_west_2
     aws_security_group.ssh
@@ -115,9 +115,9 @@ resource "aws_instance" "app_1_us_east_1_private_1" {
     device_index         = 1
   }
   key_name = local.ssh_key_name_us_east_1
-  tags = merge(local.common_tags, map(
-    "Name", "${local.prefix}-app-private"
-  ))
+  tags = merge(local.common_tags, tomap({
+    "Name" = "${local.prefix}-app-private"
+  }))
   depends_on = [
   #  module.endpoints_us_east_1
     aws_security_group.ssh
