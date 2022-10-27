@@ -24,7 +24,7 @@ resource "aws_instance" "web_us_west_2_instance_1" {
 
   depends_on = [
   #  module.endpoints_us_west_2
-    aws_security_group.ssh.id
+    aws_security_group.ssh
   ]
 }
 
@@ -53,7 +53,7 @@ resource "aws_instance" "web_us_west_2_instance_2" {
 
   depends_on = [
   #  module.endpoints_us_west_2
-    aws_security_group.ssh.id
+    aws_security_group.ssh
   ]
 }
 
@@ -83,7 +83,7 @@ resource "aws_instance" "app_1_us_west_2_private_1" {
 
   depends_on = [
   #  module.endpoints_us_west_2
-    aws_security_group.ssh.id
+    aws_security_group.ssh
   ]
 }
 
@@ -113,7 +113,7 @@ resource "aws_instance" "app_1_us_east_1_private_1" {
 
   depends_on = [
   #  module.endpoints_us_east_1
-    aws_security_group.ssh.id
+    aws_security_group.ssh
   ]
 }
 
@@ -143,6 +143,6 @@ resource "aws_instance" "proxy_us_west_2_instance_1" {
 
   depends_on = [
   #  module.endpoints_us_west_2
-    aws_security_group.ssh.id
+    aws_security_group.ssh
   ]
 }
