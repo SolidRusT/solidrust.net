@@ -1,3 +1,7 @@
+terraform {
+  required_version = ">= 1.3.0"
+}
+
 locals{
   project = var.project
   prefix  = "${local.project}-access"
