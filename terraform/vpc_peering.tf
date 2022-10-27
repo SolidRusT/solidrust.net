@@ -1,5 +1,5 @@
-# Peering connection: us_west-2 <-> us_east_1
-resource "aws_vpc_peering_connection" "us_west-2-us_east_1" {
+# Peering connection: us_west_2 <-> us_east_1
+resource "aws_vpc_peering_connection" "us_west_2-us_east_1" {
   provider = aws.us-west-2
   vpc_id        = module.vpc_us_west_2.vpc_id
   peer_vpc_id   = module.vpc_us_east_1.vpc_id
@@ -9,31 +9,32 @@ resource "aws_vpc_peering_connection" "us_west-2-us_east_1" {
   tags = local.common_tags
 }
 
-resource "aws_vpc_peering_connection_accepter" "us_east_1-us_west-2" {
+resource "aws_vpc_peering_connection_accepter" "us_east_1-us_west_2" {
   provider                  = aws.us-east-1
-  vpc_peering_connection_id = aws_vpc_peering_connection.us_west-2-us_east_1.id
+  vpc_peering_connection_id = aws_vpc_peering_connection.us_west_2-us_east_1.id
   auto_accept               = true
   tags = local.common_tags
 }
 
-resource "aws_route" "us_west-2-us_east_1" {
+resource "aws_route" "us_west_2-us_east_1" {
   provider = aws.us-west-2
   count = length(module.vpc_us_west_2.private_route_table_ids)
   route_table_id = module.vpc_us_west_2.private_route_table_ids[count.index]
   destination_cidr_block    = module.vpc_us_east_1.vpc_cidr_block
-  vpc_peering_connection_id = aws_vpc_peering_connection.us_west-2-us_east_1.id  
+  vpc_peering_connection_id = aws_vpc_peering_connection.us_west_2-us_east_1.id  
 }
 
-resource "aws_route" "us_east_1-us_west-2" {
+resource "aws_route" "us_east_1-us_west_2" {
+  provider = aws.us-east-1
   count = length(module.vpc_us_east_1.private_route_table_ids)
   route_table_id = module.vpc_us_east_1.private_route_table_ids[count.index]
   destination_cidr_block    = module.vpc_us_west_2.vpc_cidr_block
-  vpc_peering_connection_id = aws_vpc_peering_connection_accepter.us_east_1-us_west-2.id
+  vpc_peering_connection_id = aws_vpc_peering_connection_accepter.us_east_1-us_west_2.id
 }
 
-# Peering connection: us_west-2 <-> us_east_1
+# Peering connection: us_west_2 <-> us_east_1
 
-resource "aws_vpc_peering_connection" "us_west-2-us_east_2" {
+resource "aws_vpc_peering_connection" "us_west_2-us_east_2" {
   provider = aws.us-west-2
   vpc_id        = module.vpc_us_west_2.vpc_id
   peer_vpc_id   = module.vpc_us_east_2.vpc_id
@@ -43,25 +44,25 @@ resource "aws_vpc_peering_connection" "us_west-2-us_east_2" {
   tags = local.common_tags  
 }
 
-resource "aws_vpc_peering_connection_accepter" "us_east_2-us_west-2" {
+resource "aws_vpc_peering_connection_accepter" "us_east_2-us_west_2" {
   provider                  = aws.us-east-2
-  vpc_peering_connection_id = aws_vpc_peering_connection.us_west-2-us_east_2.id
+  vpc_peering_connection_id = aws_vpc_peering_connection.us_west_2-us_east_2.id
   auto_accept               = true
   tags = local.common_tags
 }
 
-resource "aws_route" "us_west-2-us_east_2" {
+resource "aws_route" "us_west_2-us_east_2" {
   provider = aws.us-west-2
   count = length(module.vpc_us_west_2.private_route_table_ids)
   route_table_id = module.vpc_us_west_2.private_route_table_ids[count.index]
   destination_cidr_block    = module.vpc_us_east_2.vpc_cidr_block
-  vpc_peering_connection_id = aws_vpc_peering_connection.us_west-2-us_east_2.id  
+  vpc_peering_connection_id = aws_vpc_peering_connection.us_west_2-us_east_2.id  
 }
 
-resource "aws_route" "us_east_2-us_west-2" {
+resource "aws_route" "us_east_2-us_west_2" {
   provider = aws.us-east-2
   count = length(module.vpc_us_east_2.private_route_table_ids)
   route_table_id = module.vpc_us_east_2.private_route_table_ids[count.index]
   destination_cidr_block    = module.vpc_us_west_2.vpc_cidr_block
-  vpc_peering_connection_id = aws_vpc_peering_connection_accepter.us_east_2-us_west-2.id  
+  vpc_peering_connection_id = aws_vpc_peering_connection_accepter.us_east_2-us_west_2.id  
 }
